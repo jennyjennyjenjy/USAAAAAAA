@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>USAA Login</title>
+  <style>
+    /* Global Styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+    }
+
+    /* Navbar Styles */
+    .navbar {
+      background-color: #002855;
+      color: white;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      width: 80px;
+    }
+
+    .nav-link {
+      color: white;
+      text-decoration: none;
+      margin-left: 15px;
+      font-weight: bold;
+    }
+
+    .nav-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Main Container */
+    .login-container {
+      background-color: white;
+      max-width: 400px;
+      margin: 50px auto;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    label {
+      font-size: 14px;
+      margin-bottom: 5px;
+      text-align: left;
+    }
+
+    input[type="text"] {
+      padding: 10px;
+      font-size: 14px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      width: 100%;
+    }
+
+    button {
+      background-color: #00573d;
+      color: white;
+      border: none;
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #00452f;
+    }
+
+    .help-link {
+      color: #0056b3;
+      text-decoration: none;
+      margin-top: 10px;
+      display: block;
+    }
+
+    .help-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Footer Styles */
+    footer {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 14px;
+      background-color: #002855;
+      padding: 10px;
+      color: white;
+    }
+
+    .footer-link {
+      color: white;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    .footer-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="navbar">
+      <img src="usaa-logo.png" alt="USAA Logo" class="logo">
+      <nav>
+        <a href="#" class="nav-link">JOIN USAA</a>
+        <a href="#" class="nav-link">REGISTER</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="login-container">
+      <h1>Log On</h1>
+      <form>
+        <label for="online-id">Online ID</label>
+        <input type="text" id="online-id" name="online-id" placeholder="Enter Online ID">
+        <button type="submit">Next</button>
+      </form>
+      <a href="#" class="help-link">I need help logging on</a>
+    </div>
+  </main>
+  <footer>
+    <a href="#" class="footer-link">Security Center</a>
+    <a href="#" class="footer-link">Privacy Center</a>
+    <a href="#" class="footer-link">Accessibility at USAA</a>
+  </footer>
+</body>
+</html>
