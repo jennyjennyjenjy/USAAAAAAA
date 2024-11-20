@@ -38,11 +38,11 @@
       text-decoration: underline;
     }
 
-    /* Main Container */
+    /* Login Container */
     .login-container {
       background-color: white;
-      max-width: 400px;
-      margin: 50px auto;
+      max-width: 500px; /* Increased size */
+      margin: 30px auto;
       padding: 20px;
       border-radius: 5px;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -54,10 +54,16 @@
       margin-bottom: 20px;
     }
 
+    .new-to-usaa {
+      text-align: left; /* Aligns text to the left */
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
     form {
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 15px;
     }
 
     label {
@@ -67,8 +73,8 @@
     }
 
     input[type="text"] {
-      padding: 10px;
-      font-size: 14px;
+      padding: 15px; /* Increased padding for larger input */
+      font-size: 16px; /* Larger font size */
       border: 1px solid #ccc;
       border-radius: 4px;
       width: 100%;
@@ -78,7 +84,7 @@
       background-color: #00573d;
       color: white;
       border: none;
-      padding: 10px;
+      padding: 12px;
       font-size: 16px;
       border-radius: 4px;
       cursor: pointer;
@@ -123,7 +129,7 @@
 <body>
   <header>
     <div class="navbar">
-      <img src="usaaaa.jpeg" alt="USAA Logo" class="logo">
+      <img src="usaa-logo.png" alt="USAA Logo" class="logo">
       <nav>
         <a href="#" class="nav-link">JOIN USAA</a>
         <a href="#" class="nav-link">REGISTER</a>
@@ -132,6 +138,10 @@
   </header>
   <main>
     <div class="login-container">
+      <div class="new-to-usaa">
+        <strong>New to USAA?</strong>
+        <a href="#" class="view-link">View</a>
+      </div>
       <h1>Log On</h1>
       <form>
         <label for="online-id">Online ID</label>
