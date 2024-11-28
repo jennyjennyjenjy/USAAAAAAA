@@ -10,8 +10,8 @@
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #0e2e49; /* Blue background */
-      color: white; /* Default text color set to white for better visibility */
+      background-color: #002855; /* Blue background */
+      color: white; /* Default text color for visibility */
     }
 
     /* Navbar Styles */
@@ -42,30 +42,34 @@
     /* Page Layout */
     .main-container {
       display: flex;
-      justify-content: flex-end; /* Aligns the box to the right */
+      justify-content: flex-end;
       align-items: flex-start;
-      padding: 50px 250px;
+      padding: 50px 300px;
       position: relative;
     }
 
     .new-to-usaa {
-      position: absolute; /* Moves the section outside of the main container */
-      left: 250px; /* Align to the left side */
-      top: 150px; /* Adjusts the vertical position */
+      position: absolute;
+      left: 50px;
+      top: 50px;
       text-align: left;
-      font-size: 32px;
-      color: white; /* Ensures text is visible against the blue background */
+      font-size: 18px;
+      color: white;
+    }
+
+    .new-to-usaa strong {
+      font-size: 24px;
     }
 
     /* Login Container */
     .login-container {
       background-color: white;
       max-width: 450px;
-      padding: 70px;
+      padding: 50px 40px;
       border-radius: 5px;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       text-align: center;
-      color: black; /* Ensure text inside the container remains visible */
+      color: black; /* Text color for login container */
     }
 
     h1 {
@@ -81,16 +85,21 @@
 
     label {
       font-size: 14px;
-      margin-bottom: 5px;
       text-align: left;
     }
 
     input[type="text"] {
       padding: 15px;
       font-size: 16px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
+      border: 1px solid #c0c4c7;
+      border-radius: 6px;
       width: 100%;
+      box-sizing: border-box;
+    }
+
+    input[type="text"]:focus {
+      outline: none;
+      border: 2px solid #0056b3; /* Blue outline on focus */
     }
 
     button {
@@ -101,6 +110,7 @@
       font-size: 16px;
       border-radius: 4px;
       cursor: pointer;
+      width: 100%; /* Matches button width to input width */
     }
 
     button:hover {
@@ -112,6 +122,7 @@
       text-decoration: none;
       margin-top: 10px;
       display: block;
+      font-size: 14px;
     }
 
     .help-link:hover {
@@ -153,6 +164,10 @@
     <div class="main-container">
       <div class="new-to-usaa">
         <strong>New to USAA?</strong>
+        <p>Become a member by selecting "Join USAA" — it's easy and only takes a few minutes.</p>
+        <button style="background-color: white; color: #0056b3; border: 1px solid #0056b3; padding: 10px 20px; border-radius: 4px; cursor: pointer;">
+          Join USAA
+        </button>
       </div>
       <div class="login-container">
         <h1>Log On</h1>
