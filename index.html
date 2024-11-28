@@ -10,12 +10,13 @@
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #f5f5f5;
+      background-color: #002855; /* Blue background */
+      color: white; /* Default text color set to white for better visibility */
     }
 
     /* Navbar Styles */
     .navbar {
-      background-color: #002855;
+      background-color: #001d40;
       color: white;
       padding: 10px 20px;
       display: flex;
@@ -42,7 +43,18 @@
     .main-container {
       display: flex;
       justify-content: flex-end; /* Aligns the box to the right */
-      margin: 50px 300px;
+      align-items: flex-start;
+      padding: 50px 300px;
+      position: relative;
+    }
+
+    .new-to-usaa {
+      position: absolute; /* Moves the section outside of the main container */
+      left: 50px; /* Align to the left side */
+      top: 50px; /* Adjusts the vertical position */
+      text-align: left;
+      font-size: 18px;
+      color: white; /* Ensures text is visible against the blue background */
     }
 
     /* Login Container */
@@ -53,16 +65,11 @@
       border-radius: 5px;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       text-align: center;
+      color: black; /* Ensure text inside the container remains visible */
     }
 
-    h2 {
+    h1 {
       font-size: 24px;
-      margin-bottom: 20px;
-    }
-
-    .new-to-usaa {
-      text-align: left;
-      font-size: 14px;
       margin-bottom: 20px;
     }
 
@@ -116,7 +123,7 @@
       margin-top: 20px;
       text-align: center;
       font-size: 14px;
-      background-color: #002855;
+      background-color: #001d40;
       padding: 10px;
       color: white;
     }
@@ -144,10 +151,10 @@
   </header>
   <main>
     <div class="main-container">
+      <div class="new-to-usaa">
+        <strong>New to USAA?</strong>
+      </div>
       <div class="login-container">
-        <div class="new-to-usaa">
-          <strong>New to USAA?</strong>
-        </div>
         <h1>Log On</h1>
         <form>
           <label for="online-id">Online ID</label>
