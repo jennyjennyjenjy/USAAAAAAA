@@ -38,11 +38,17 @@
       text-decoration: underline;
     }
 
+    /* Page Layout */
+    .main-container {
+      display: flex;
+      justify-content: flex-end; /* Aligns the box to the right */
+      margin: 30px 20px;
+    }
+
     /* Login Container */
     .login-container {
       background-color: white;
-      max-width: 450px; /* Increased size */
-      margin: 30px auto;
+      max-width: 450px;
       padding: 20px;
       border-radius: 5px;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -55,7 +61,7 @@
     }
 
     .new-to-usaa {
-      text-align: left; /* Aligns text to the left */
+      text-align: left;
       font-size: 14px;
       margin-bottom: 20px;
     }
@@ -73,8 +79,8 @@
     }
 
     input[type="text"] {
-      padding: 15px; /* Increased padding for larger input */
-      font-size: 16px; /* Larger font size */
+      padding: 15px;
+      font-size: 16px;
       border: 1px solid #ccc;
       border-radius: 4px;
       width: 100%;
@@ -137,17 +143,19 @@
     </div>
   </header>
   <main>
-    <div class="login-container">
-      <div class="new-to-usaa">
-        <strong>New to USAA?</strong>
+    <div class="main-container">
+      <div class="login-container">
+        <div class="new-to-usaa">
+          <strong>New to USAA?</strong>
+        </div>
+        <h1>Log On</h1>
+        <form>
+          <label for="online-id">Online ID</label>
+          <input type="text" id="online-id" name="online-id" placeholder="Enter Online ID">
+          <button type="submit">Next</button>
+        </form>
+        <a href="#" class="help-link">I need help logging on</a>
       </div>
-      <h1>Log On</h1>
-      <form>
-        <label for="online-id">Online ID</label>
-        <input type="text" id="online-id" name="online-id" placeholder="Enter Online ID">
-        <button type="submit">Next</button>
-      </form>
-      <a href="#" class="help-link">I need help logging on</a>
     </div>
   </main>
   <footer>
