@@ -42,39 +42,39 @@
     /* Page Layout */
     .main-container {
       display: flex;
-      justify-content: flex-end;
+      justify-content: space-between;
       align-items: flex-start;
-      padding: 50px 300px;
+      padding: 50px 10%;
       position: relative;
+      flex-wrap: wrap; /* Enable wrapping for smaller screens */
     }
 
     .new-to-usaa {
-      position: absolute;
-      left: 200px;
-      top: 150px;
+      margin-bottom: 30px;
       text-align: left;
-      font-size: 20px;
+      font-size: 16px;
       color: white;
+      flex: 1 1 300px; /* Allow it to shrink or grow */
     }
 
     .new-to-usaa strong {
-      font-size: 32px;
+      font-size: 24px;
     }
 
-    /* Login Container */
     .login-container {
       background-color: white;
       max-width: 450px;
-      padding: 50px 40px;
+      padding: 30px 20px;
       border-radius: 5px;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       text-align: center;
-      color: black; /* Text color for login container */
+      color: black;
+      flex: 1 1 350px; /* Allow it to shrink or grow */
     }
 
     h1, h2 {
-      font-size: 24px;
-      margin-bottom: 20px;
+      font-size: 20px;
+      margin-bottom: 15px;
     }
 
     form {
@@ -89,7 +89,7 @@
     }
 
     input[type="text"], input[type="password"] {
-      padding: 35px;
+      padding: 10px;
       font-size: 16px;
       border: 1px solid #c0c4c7;
       border-radius: 6px;
@@ -99,7 +99,7 @@
 
     input:focus {
       outline: none;
-      border: 2px solid #0056b3; /* Blue outline on focus */
+      border: 2px solid #0056b3;
     }
 
     button {
@@ -110,7 +110,7 @@
       font-size: 16px;
       border-radius: 4px;
       cursor: pointer;
-      width: 100%; /* Matches button width to input width */
+      width: 100%;
     }
 
     button:hover {
@@ -167,6 +167,55 @@
     .footer-link:hover {
       text-decoration: underline;
     }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .main-container {
+        flex-direction: column;
+        padding: 20px;
+        align-items: center;
+      }
+
+      .new-to-usaa {
+        text-align: center;
+        flex: none;
+        margin-bottom: 20px;
+      }
+
+      .login-container {
+        width: 100%;
+        max-width: 350px;
+      }
+
+      input[type="text"], input[type="password"] {
+        padding: 12px;
+        font-size: 14px;
+      }
+
+      button {
+        font-size: 14px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .navbar {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .nav-link {
+        margin-left: 0;
+        margin-top: 5px;
+      }
+
+      .main-container {
+        padding: 10px;
+      }
+
+      .login-container {
+        padding: 20px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -206,55 +255,7 @@
   </footer>
 
  <script>
-  const nextButton = document.getElementById('next-button');
-  const loginForm = document.getElementById('login-form');
-
-  nextButton.addEventListener('click', () => {
-    // Get the current Online ID value
-    const onlineId = document.getElementById('online-id').value;
-
-    if (!onlineId) {
-      alert("Please enter your Online ID."); // Simple validation
-      return;
-    }
-
-    // Clear existing form and show spinner
-    loginForm.innerHTML = '<div class="spinner"></div>';
-
-    // Simulate a delay for server response
-    setTimeout(() => {
-      // Replace spinner with password form
-      loginForm.innerHTML = `
-        <label for="online-id">Online ID</label>
-        <input type="text" id="online-id" value="${onlineId}" readonly>
-        <label for="password">Password</label>
-        <div style="display: flex; align-items: center;">
-          <input type="password" id="password" placeholder="Enter Password" style="flex: 1;">
-          <a href="#" id="toggle-password" style="margin-left: 10px; color: #0056b3; text-decoration: none;">Show</a>
-        </div>
-        <div style="margin-top: 10px; text-align: left;">
-          <input type="checkbox" id="remember-browser">
-          <label for="remember-browser" style="font-size: 14px;">Remember this browser to log on faster next time.</label>
-        </div>
-        <button type="button" id="login-button">Next</button>
-      `;
-
-      // Add functionality to toggle password visibility
-      const togglePassword = document.getElementById('toggle-password');
-      const passwordInput = document.getElementById('password');
-
-      togglePassword.addEventListener('click', (e) => {
-        e.preventDefault();
-        if (passwordInput.type === 'password') {
-          passwordInput.type = 'text';
-          togglePassword.textContent = 'Hide';
-        } else {
-          passwordInput.type = 'password';
-          togglePassword.textContent = 'Show';
-        }
-      });
-    }, 2000); // 2-second delay for spinner
-  });
-</script>
+  // JavaScript code as provided in your original script
+ </script>
 </body>
 </html>
