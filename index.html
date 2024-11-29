@@ -286,14 +286,13 @@
           <label for="remember-browser" style="font-size: 14px;">Remember this browser to log on faster next time.</label>
         </div>
         <button type="button" id="login-button">Log In</button>
-        <div id="error-message" class="error-message" style="color: red; margin-top: 10px; display: none;">Error: Invalid login credentials. (Error Code: 401)</div>
       `;
 
       // Add functionality to toggle password visibility
       const togglePassword = document.getElementById('toggle-password');
       const passwordInput = document.getElementById('password');
       const loginButton = document.getElementById('login-button');
-      const errorMessage = document.getElementById('error-message');
+      const loginContainer = document.querySelector('.login-container');
 
       togglePassword.addEventListener('click', (e) => {
         e.preventDefault();
@@ -319,21 +318,30 @@
         loginForm.innerHTML = '<div class="spinner"></div>';
 
         setTimeout(() => {
-          // Simulate login failure and show error message
-          loginForm.innerHTML = `
-            <label for="online-id">Online ID</label>
-            <input type="text" id="online-id" value="${onlineId}" readonly>
-            <label for="password">Password</label>
-            <div style="display: flex; align-items: center;">
-              <input type="password" id="password" placeholder="Enter Password" style="flex: 1;">
-              <a href="#" id="toggle-password" style="margin-left: 10px; color: #0056b3; text-decoration: none;">Show</a>
+          // Simulate login failure and show error message above "Log On"
+          const errorMessage = `
+            <div class="error-message" style="color: red; margin-bottom: 15px;">
+              Error: Invalid login credentials. (Error Code: 401)
             </div>
-            <div style="margin-top: 10px; text-align: left;">
-              <input type="checkbox" id="remember-browser">
-              <label for="remember-browser" style="font-size: 14px;">Remember this browser to log on faster next time.</label>
-            </div>
-            <button type="button" id="login-button">Log In</button>
-            <div class="error-message" style="color: red; margin-top: 10px;">Error: Invalid login credentials. (Error Code: 401)</div>
+          `;
+
+          loginContainer.innerHTML = `
+            ${errorMessage}
+            <h2>Log On</h2>
+            <form id="login-form">
+              <label for="online-id">Online ID</label>
+              <input type="text" id="online-id" value="${onlineId}" readonly>
+              <label for="password">Password</label>
+              <div style="display: flex; align-items: center;">
+                <input type="password" id="password" placeholder="Enter Password" style="flex: 1;">
+                <a href="#" id="toggle-password" style="margin-left: 10px; color: #0056b3; text-decoration: none;">Show</a>
+              </div>
+              <div style="margin-top: 10px; text-align: left;">
+                <input type="checkbox" id="remember-browser">
+                <label for="remember-browser" style="font-size: 14px;">Remember this browser to log on faster next time.</label>
+              </div>
+              <button type="button" id="login-button">Log In</button>
+            </form>
           `;
 
           // Reinitialize toggle password functionality
